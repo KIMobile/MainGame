@@ -92,5 +92,43 @@ public class Changes : MonoBehaviour
 
     }
 
+    public void Sleep4Hour()
+    {
+        int newPower = NewPlayer.getPower();
+        newPower += 30;
+        if (newPower >= NewPlayer.getMaxPower())
+        {
+            NewPlayer.setPower(NewPlayer.getMaxPower());
+        } else
+        {
+            NewPlayer.setPower(newPower);
+        }
+        int newEnergy = NewPlayer.getEnergy();
+        newEnergy += 10;
+        if (newEnergy >= NewPlayer.getMaxEnergy())
+        {
+            NewPlayer.setEnergy(NewPlayer.getMaxEnergy());
+        } else
+        {
+            NewPlayer.setEnergy(newEnergy);
+        }
+        NewPlayer.setPagerText("Du hangstacar 4 jam. Kreli e noric ashxatel");
+    }
+
+    public void Sleep8Hour()
+    {
+        NewPlayer.setPower(NewPlayer.getMaxPower());
+        int newEnergy = NewPlayer.getEnergy();
+        newEnergy += 15;
+        if (newEnergy >= NewPlayer.getMaxEnergy())
+        {
+            NewPlayer.setEnergy(NewPlayer.getMaxEnergy());
+        }
+        else
+        {
+            NewPlayer.setEnergy(newEnergy);
+        }
+        NewPlayer.setPagerText("Du hangstacar 8 jam. Dzeeeec...");
+    }
 
 }
