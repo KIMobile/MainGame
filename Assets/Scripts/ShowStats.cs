@@ -15,16 +15,6 @@ public class ShowStats : MonoBehaviour
     public Text Pager;
 
 
-    //public void startGame()
-    //{
-    //    healthPoints.text = NewPlayer.getHp().ToString() + "/" + NewPlayer.getMaxHP().ToString();
-    //    powerPoints.text = NewPlayer.getPower().ToString() + "/" + NewPlayer.getMaxPower().ToString();
-    //    energyPoints.text = NewPlayer.getEnergy().ToString() + "/" + NewPlayer.getMaxEnergy().ToString();
-    //    IntellectPoints.text = NewPlayer.getIntellect().ToString();
-    //    PsychologyPoints.text = NewPlayer.getPsychology().ToString() + "/" + NewPlayer.getMaxPsychology().ToString();
-    //    moneyCount.text = NewPlayer.getMoney().ToString() + "$";
-    //}
-
     void Update()
     {
         userName.text = NewPlayer.getAnun();

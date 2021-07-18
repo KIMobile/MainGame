@@ -4,9 +4,10 @@ using UnityEngine.UI;
 public class NewPlayer : MonoBehaviour
 {
 
-
+    // Pager message text
     public static string PagerText = "";
 
+    //User stats
     private static string anun;
     private static int hp;
     private static int MaxHp = 70;
@@ -18,6 +19,10 @@ public class NewPlayer : MonoBehaviour
     private static int Psychology;
     private static int MaxPsychology = 100;
     private static double money;
+
+    //User inventar items
+    private static int apples = 0;
+    private static int macuns = 0;
 
     
     private static void setAnun()
@@ -209,6 +214,34 @@ public class NewPlayer : MonoBehaviour
         setIntellect();
         setPsychology();
         setMoney();
+    }
+
+    //Inventar getters and setters
+
+    public static void setApple(int points)
+    {
+        if (points >= 0)
+        {
+            apples = points;
+        }
+    }
+
+    public static int getApples()
+    {
+        return apples;
+    }
+
+    public static void setMacuns(int points)
+    {
+        if (points >= 0)
+        {
+            macuns = points;
+        }
+    }
+
+    public static int getMacuns()
+    {
+        return macuns;
     }
 
 }

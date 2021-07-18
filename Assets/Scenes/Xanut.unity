@@ -1274,7 +1274,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '1hat Macun - 2$
 
-    +10HP, +30 Energy'
+    +10HP, +15 Energy'
 --- !u!222 &1003263959
 CanvasRenderer:
   m_ObjectHideFlags: 0
