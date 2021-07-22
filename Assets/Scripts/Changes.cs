@@ -112,7 +112,7 @@ public class Changes : MonoBehaviour
         {
             NewPlayer.setEnergy(newEnergy);
         }
-        NewPlayer.setPagerText("Du hangstacar 4 jam. Kreli e noric ashxatel");
+        NewPlayer.setPagerText("Du hangstacar 4 jam. Kareli e noric ashxatel");
     }
 
     public void Sleep8Hour()
@@ -129,6 +129,32 @@ public class Changes : MonoBehaviour
             NewPlayer.setEnergy(newEnergy);
         }
         NewPlayer.setPagerText("Du hangstacar 8 jam. Dzeeeec...");
+    }
+
+    public void LearnAlphabet()
+    {
+        if((NewPlayer.getPsychology() >= 15) && (NewPlayer.getMoney() >= 2.5) && (NewPlayer.getEnergy() >= 50) && (NewPlayer.getPower() >= 40))
+        {
+            double newMoney = NewPlayer.getMoney();
+            newMoney -= 2.5;
+            NewPlayer.setMoney(newMoney);
+            int newPsycho = NewPlayer.getPsychology();
+            newPsycho -= 15;
+            NewPlayer.setPsychology(newPsycho);
+            int newPower = NewPlayer.getPower();
+            newPower -= 40;
+            NewPlayer.setPower(newPower);
+            int newEnergy = NewPlayer.getEnergy();
+            newEnergy -= 50;
+            NewPlayer.setEnergy(newEnergy);
+            double newIntellect = NewPlayer.getIntellect();
+            newIntellect += 0.1;
+            NewPlayer.setIntellect(newIntellect);
+            NewPlayer.setPagerText("Ayjm du gites tarery ev karox es kardal.");
+        } else
+        {
+            NewPlayer.setPagerText("Brat, chto to nitoya...");
+        }
     }
 
 }

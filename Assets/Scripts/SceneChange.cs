@@ -29,6 +29,12 @@ public class SceneChange : MonoBehaviour
         NewPlayer.setPagerText("exac-chexact esa axper...");
     }
 
+    public void GoToSchool()
+    {
+        SceneManager.LoadScene("Dproc");
+        NewPlayer.setPagerText("Bari galust Dproc....");
+    }
+
     public void backToUserScene()
     {
         SceneManager.LoadScene("UserScene");

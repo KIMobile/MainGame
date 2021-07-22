@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Inventar.unity
     guid: 731c41ca9141771489c24f78677d9db4
+  - enabled: 1
+    path: Assets/Scenes/Dproc.unity
+    guid: b858b7df65ee43e4fb22d8ec7a0e1112
   m_configObjects: {}
