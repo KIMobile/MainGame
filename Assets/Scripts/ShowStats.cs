@@ -13,6 +13,7 @@ public class ShowStats : MonoBehaviour
     public Text moneyCount;
 
     public Text Pager;
+    public Text Time;
 
 
     void Update()
@@ -25,6 +26,7 @@ public class ShowStats : MonoBehaviour
         PsychologyPoints.text = NewPlayer.getPsychology().ToString() + "/" + NewPlayer.getMaxPsychology().ToString();
         moneyCount.text = NewPlayer.getMoney().ToString() + "$";
         Pager.text = NewPlayer.getPagerText();
+        Time.text = "Day: " + NewPlayer.getDay() + " / " + NewPlayer.getHourInString() + ":" + NewPlayer.getMinuteInString();
     }
 
 }

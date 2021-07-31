@@ -1,30 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShowHide : MonoBehaviour
 {
-    public GameObject TestButton;
+    
+    public GameObject LearnAlpha;
+    public GameObject LearnDigits;
 
-    public void ShowTestButton()
+
+    public void ShowAlphaButton()
     {
-        TestButton.SetActive(true);
+        LearnAlpha.SetActive(true);
     }
 
-    public void HideTestButton()
+    public void HideAlphaButton()
     {
-        TestButton.SetActive(false);
+        LearnAlpha.SetActive(false);
+    }
+
+    public void ShowDigitsButton()
+    {
+        LearnDigits.SetActive(true);
+    }
+
+    public void HideDigitsButton()
+    {
+        LearnDigits.SetActive(false);
     }
 
 
     void Update()
     {
-        if ((NewPlayer.getIntellect() > 0) && (NewPlayer.getIntellect() < 0.2))
+        if(NewPlayer.getIntellect() < 0.1)
         {
-            ShowTestButton();
+            ShowAlphaButton();
         } else
         {
-            HideTestButton();
+            HideAlphaButton();
+        }
+
+        if (NewPlayer.getIntellect() == 0.1)
+        {
+            ShowDigitsButton();
+        } else
+        {
+            HideDigitsButton();
         }
 
     }

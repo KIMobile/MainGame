@@ -1,11 +1,13 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class NewPlayer : MonoBehaviour
 {
 
     // Pager message text
     public static string PagerText = "";
+    public static int Day = 0;
+    public static int Hour = 8;
+    public static int Minute = 0;
 
     //User stats
     private static string anun;
@@ -155,7 +157,13 @@ public class NewPlayer : MonoBehaviour
     {
         if (points >= 0)
         {
-            Psychology = points;
+            if(points >= getMaxPsychology())
+            {
+                Psychology = getMaxPsychology();
+            } else
+            {
+                Psychology = points;
+            }
         }
     }
 
@@ -203,6 +211,73 @@ public class NewPlayer : MonoBehaviour
     public static string getPagerText()
     {
         return PagerText;
+    }
+
+    public static void setDay(int days)
+    {
+        if (days >= 0)
+        {
+            Day = days;
+        }
+    }
+
+    public static int getDay()
+    {
+        return Day;
+    }
+
+    public static void setHour(int hours)
+    {
+        if (hours >=24)
+        {
+            setDay(getDay() + 1);
+            Hour = hours - 24;
+        } else
+        {
+            Hour = hours;
+        }
+    }
+
+    public static int getHour()
+    {
+        return Hour;
+    }
+
+    public static string getHourInString()
+    {
+        string hours = getHour().ToString();
+        if (hours.Length == 1)
+        {
+            hours = "0" + hours;
+        }
+        return hours;
+    }
+
+    public static void setMinute(int minutes)
+    {
+        if(minutes >= 60)
+        {
+            Minute = minutes - 60;
+            setHour(getHour() + 1);
+        } else
+        {
+            Minute = minutes;
+        }
+    }
+
+    public static int getMinute()
+    {
+        return Minute;
+    }
+
+    public static string getMinuteInString()
+    {
+        string minutes = getMinute().ToString();
+        if (minutes.Length == 1)
+        {
+            minutes = "0" + minutes;
+        }
+        return minutes;
     }
 
     public static void createNewPlayer()

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Changes : MonoBehaviour
 {
@@ -103,32 +102,17 @@ public class Changes : MonoBehaviour
         {
             NewPlayer.setPower(newPower);
         }
-        int newEnergy = NewPlayer.getEnergy();
-        newEnergy += 10;
-        if (newEnergy >= NewPlayer.getMaxEnergy())
-        {
-            NewPlayer.setEnergy(NewPlayer.getMaxEnergy());
-        } else
-        {
-            NewPlayer.setEnergy(newEnergy);
-        }
-        NewPlayer.setPagerText("Du hangstacar 4 jam. Kareli e noric ashxatel");
+        NewPlayer.setPsychology(NewPlayer.getPsychology() + 2);
+        NewPlayer.setHour(NewPlayer.getHour() + 4);
+        NewPlayer.setPagerText("Du hangstacar 4 jam. Mi tetev snvi u noric ashxatel");
     }
 
     public void Sleep8Hour()
     {
         NewPlayer.setPower(NewPlayer.getMaxPower());
-        int newEnergy = NewPlayer.getEnergy();
-        newEnergy += 15;
-        if (newEnergy >= NewPlayer.getMaxEnergy())
-        {
-            NewPlayer.setEnergy(NewPlayer.getMaxEnergy());
-        }
-        else
-        {
-            NewPlayer.setEnergy(newEnergy);
-        }
-        NewPlayer.setPagerText("Du hangstacar 8 jam. Dzeeeec...");
+        NewPlayer.setPsychology(NewPlayer.getPsychology() + 5);
+        NewPlayer.setHour(NewPlayer.getHour() + 8);
+        NewPlayer.setPagerText("Du hangstacar 8 jam. Dzeeeec... Bayc bessamt sovac em");
     }
 
     public void LearnAlphabet()
@@ -150,10 +134,39 @@ public class Changes : MonoBehaviour
             double newIntellect = NewPlayer.getIntellect();
             newIntellect += 0.1;
             NewPlayer.setIntellect(newIntellect);
+            NewPlayer.setHour(NewPlayer.getHour() + 5);
             NewPlayer.setPagerText("Ayjm du gites tarery ev karox es kardal.");
         } else
         {
-            NewPlayer.setPagerText("Brat, chto to nitoya...");
+            NewPlayer.setPagerText("Brat, chto to nitoya... Karoxa sovacs?");
+        }
+    }
+
+    public void LearnDigits()
+    {
+        if ((NewPlayer.getPsychology() >= 15) && (NewPlayer.getMoney() >= 2.5) && (NewPlayer.getEnergy() >= 50) && (NewPlayer.getPower() >= 40))
+        {
+            double newMoney = NewPlayer.getMoney();
+            newMoney -= 2.5;
+            NewPlayer.setMoney(newMoney);
+            int newPsycho = NewPlayer.getPsychology();
+            newPsycho -= 15;
+            NewPlayer.setPsychology(newPsycho);
+            int newPower = NewPlayer.getPower();
+            newPower -= 40;
+            NewPlayer.setPower(newPower);
+            int newEnergy = NewPlayer.getEnergy();
+            newEnergy -= 50;
+            NewPlayer.setEnergy(newEnergy);
+            double newIntellect = NewPlayer.getIntellect();
+            newIntellect += 0.1;
+            NewPlayer.setIntellect(newIntellect);
+            NewPlayer.setHour(NewPlayer.getHour() + 5);
+            NewPlayer.setPagerText("Ayjm du gites tvery ev karox es hashvel");
+        }
+        else
+        {
+            NewPlayer.setPagerText("Brat, chto to nitoya... Karoxa pox chonis?");
         }
     }
 
