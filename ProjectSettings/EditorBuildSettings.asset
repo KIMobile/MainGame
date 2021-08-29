@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/SelectHostel.unity
+    guid: fbbf17c7c15044a46bde75f70f4d0063
+  - enabled: 1
     path: Assets/Scenes/UserScene.unity
     guid: 55f879097f1052b42a965dad9d763da3
   - enabled: 1
@@ -23,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dproc.unity
     guid: b858b7df65ee43e4fb22d8ec7a0e1112
+  - enabled: 1
+    path: Assets/Scenes/Gym.unity
+    guid: fdfaf2022ed5fe94ca33eb7ec732b8f4
   m_configObjects: {}

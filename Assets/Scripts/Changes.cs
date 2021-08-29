@@ -4,6 +4,12 @@ public class Changes : MonoBehaviour
 {
 
 
+    public void selectFirstHostel()
+    {
+        NewPlayer.setHotelPrice(0.1);
+    }
+
+
     public void TestWork()
     {
         if ((NewPlayer.getPower() >= 15) && (NewPlayer.getEnergy() >= 20) && (NewPlayer.getPsychology() >= 6))
@@ -167,6 +173,85 @@ public class Changes : MonoBehaviour
         else
         {
             NewPlayer.setPagerText("Brat, chto to nitoya... Karoxa pox chonis?");
+        }
+    }
+
+    public void TrainMaxHp()
+    {
+        if ((NewPlayer.getMoney() >= 0.5) && (NewPlayer.getEnergy() >= 30) && (NewPlayer.getPower() >= 40))
+        {
+            double newMoney = NewPlayer.getMoney();
+            newMoney -= 0.5;
+            NewPlayer.setMoney(newMoney);
+            int newPsycho = NewPlayer.getPsychology();
+            newPsycho += 4;
+            NewPlayer.setPsychology(newPsycho);
+            int newPower = NewPlayer.getPower();
+            newPower -= 40;
+            NewPlayer.setPower(newPower);
+            int newEnergy = NewPlayer.getEnergy();
+            newEnergy -= 30;
+            NewPlayer.setEnergy(newEnergy);
+            NewPlayer.setHour(NewPlayer.getHour() + 2);
+            NewPlayer.changeHpTrainingProgress();
+            NewPlayer.setPagerText("Ufffff...");
+        }
+        else
+        {
+            NewPlayer.setPagerText("che brat, vichak chka... to mna heto");
+        }
+    }
+
+    public void TrainMaxPower()
+    {
+        if ((NewPlayer.getMoney() >= 0.5) && (NewPlayer.getEnergy() >= 30) && (NewPlayer.getPower() >= 40))
+        {
+            double newMoney = NewPlayer.getMoney();
+            newMoney -= 0.6;
+            NewPlayer.setMoney(newMoney);
+            int newPsycho = NewPlayer.getPsychology();
+            newPsycho += 5;
+            NewPlayer.setPsychology(newPsycho);
+            int newPower = NewPlayer.getPower();
+            newPower -= 45;
+            NewPlayer.setPower(newPower);
+            int newEnergy = NewPlayer.getEnergy();
+            newEnergy -= 35;
+            NewPlayer.setEnergy(newEnergy);
+            NewPlayer.setMinute(NewPlayer.getMinute() + 30);
+            NewPlayer.setHour(NewPlayer.getHour() + 2);
+            NewPlayer.changePowerTrainingProgress();
+            NewPlayer.setPagerText("Ufffff...");
+        }
+        else
+        {
+            NewPlayer.setPagerText("che brat, vichak chka, esoranc hognacm... to mna heto");
+        }
+    }
+
+    public void TrainMaxEnergy()
+    {
+        if ((NewPlayer.getMoney() >= 0.5) && (NewPlayer.getEnergy() >= 30) && (NewPlayer.getPower() >= 40))
+        {
+            double newMoney = NewPlayer.getMoney();
+            newMoney -= 0.5;
+            NewPlayer.setMoney(newMoney);
+            int newPsycho = NewPlayer.getPsychology();
+            newPsycho += 4;
+            NewPlayer.setPsychology(newPsycho);
+            int newPower = NewPlayer.getPower();
+            newPower -= 40;
+            NewPlayer.setPower(newPower);
+            int newEnergy = NewPlayer.getEnergy();
+            newEnergy -= 30;
+            NewPlayer.setEnergy(newEnergy);
+            NewPlayer.setHour(NewPlayer.getHour() + 2);
+            NewPlayer.changeEnergyTrainingProgress();
+            NewPlayer.setPagerText("Ufffff...");
+        }
+        else
+        {
+            NewPlayer.setPagerText("vay qu ara... hla et el ka?... to patar shunch qashim");
         }
     }
 

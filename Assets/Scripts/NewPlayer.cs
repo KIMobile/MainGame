@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class NewPlayer : MonoBehaviour
@@ -21,12 +22,248 @@ public class NewPlayer : MonoBehaviour
     private static int Psychology;
     private static int MaxPsychology = 100;
     private static double money;
+    private static int statsMaximum = 100;
 
     //User inventar items
     private static int apples = 0;
     private static int macuns = 0;
 
-    
+    //GYM variables
+    private static int hpPercentChanger = 25;
+    private static int hpTrainingProgress = 0;
+    private static int hpUp = 10;
+
+    private static int powerPercentChanger = 25;
+    private static int powerTrainingProgress = 0;
+    private static int powerUp = 10;
+
+    private static int energyPercentChanger = 25;
+    private static int energyTrainingProgress = 0;
+    private static int energyUp = 10;
+
+    private static double hotelPrice = 0;
+
+    //HP
+    private static void setHpPercentChanger(int newValue)
+    {
+        if (newValue > 0)
+        {
+            hpPercentChanger = newValue;
+        }
+    }
+
+    public static int getHpPercentChanger()
+    {
+        return hpPercentChanger;
+    }
+
+    private static void changeHpPercentChanger()
+    {
+        if(getHpPercentChanger() > 10)
+        {
+            setHpPercentChanger(getHpPercentChanger() - 5);
+        }
+    }
+
+    private static void setHpTrainingProgress(int newValue)
+    {
+        if(newValue >= 0)
+        {
+            hpTrainingProgress = newValue;
+        }
+    }
+
+    public static int getHpTrainingProgress()
+    {
+        return hpTrainingProgress;
+    }
+
+    private static void setHpUp(int newValue)
+    {
+        if (newValue >= 0)
+        {
+            hpUp = newValue;
+        }
+    }
+
+    public static int getHpUp()
+    {
+        return hpUp;
+    }
+
+    private static void changeHpUp()
+    {
+        double doubleValue = getHpUp();
+        int newValue = (int)Math.Ceiling(doubleValue / 2);
+        setHpUp(newValue);
+    }
+
+    public static void changeHpTrainingProgress()
+    {
+        if((getHpTrainingProgress() + getHpPercentChanger()) < 100)
+        {
+            setHpTrainingProgress(getHpTrainingProgress() + getHpPercentChanger());
+        } else
+        {
+            setMaxHP(getMaxHP() + getHpUp());
+            changeHpUp();
+            changeHpPercentChanger();
+            setHpTrainingProgress(0);
+        }
+    }
+
+    // Power
+    private static void setPowerPercentChanger(int newValue)
+    {
+        if (newValue > 0)
+        {
+            powerPercentChanger = newValue;
+        }
+    }
+
+    public static int getPowerPercentChanger()
+    {
+        return powerPercentChanger;
+    }
+
+    private static void changePowerPercentChanger()
+    {
+        if (getPowerPercentChanger() > 10)
+        {
+            setPowerPercentChanger(getPowerPercentChanger() - 5);
+        }
+    }
+
+    private static void setPowerTrainingProgress(int newValue)
+    {
+        if (newValue >= 0)
+        {
+            powerTrainingProgress = newValue;
+        }
+    }
+
+    public static int getPowerTrainingProgress()
+    {
+        return powerTrainingProgress;
+    }
+
+    private static void setPowerUp(int newValue)
+    {
+        if (newValue >= 0)
+        {
+            powerUp = newValue;
+        }
+    }
+
+    public static int getPowerUp()
+    {
+        return powerUp;
+    }
+
+    private static void changePowerUp()
+    {
+        double doubleValue = getPowerUp();
+        int newValue = (int)Math.Ceiling(doubleValue / 2);
+        setPowerUp(newValue);
+    }
+
+    public static void changePowerTrainingProgress()
+    {
+        if ((getPowerTrainingProgress() + getPowerPercentChanger()) < 100)
+        {
+            setPowerTrainingProgress(getPowerTrainingProgress() + getPowerPercentChanger());
+        }
+        else
+        {
+            setMaxPower(getMaxPower() + getPowerUp());
+            changePowerUp();
+            changePowerPercentChanger();
+            setPowerTrainingProgress(0);
+        }
+    }
+
+    //Energy
+    private static void setEnergyPercentChanger(int newValue)
+    {
+        if (newValue > 0)
+        {
+            energyPercentChanger = newValue;
+        }
+    }
+
+    public static int getEnergyPercentChanger()
+    {
+        return energyPercentChanger;
+    }
+
+    private static void changeEnergyPercentChanger()
+    {
+        if (getEnergyPercentChanger() > 10)
+        {
+            setEnergyPercentChanger(getEnergyPercentChanger() - 5);
+        }
+    }
+
+    private static void setEnergyTrainingProgress(int newValue)
+    {
+        if (newValue >= 0)
+        {
+            energyTrainingProgress = newValue;
+        }
+    }
+
+    public static int getEnergyTrainingProgress()
+    {
+        return energyTrainingProgress;
+    }
+
+    private static void setEnergyUp(int newValue)
+    {
+        if (newValue >= 0)
+        {
+            energyUp = newValue;
+        }
+    }
+
+    public static int getEnergyUp()
+    {
+        return energyUp;
+    }
+
+    private static void changeEnergyUp()
+    {
+        double doubleValue = getEnergyUp();
+        int newValue = (int)Math.Ceiling(doubleValue / 2);
+        setEnergyUp(newValue);
+    }
+
+    public static void changeEnergyTrainingProgress()
+    {
+        if ((getEnergyTrainingProgress() + getEnergyPercentChanger()) < 100)
+        {
+            setEnergyTrainingProgress(getEnergyTrainingProgress() + getEnergyPercentChanger());
+        }
+        else
+        {
+            setMaxEnergy(getMaxEnergy() + getEnergyUp());
+            changeEnergyUp();
+            changeEnergyPercentChanger();
+            setEnergyTrainingProgress(0);
+        }
+    }
+
+    //Stats Maximum
+    private static void setStatsMaximum(int newValue)
+    {
+        statsMaximum = newValue;
+    }
+
+    public static int getStatsMaximum()
+    {
+        return statsMaximum;
+    }
+
+    //Create new player variables
     private static void setAnun()
     {
         anun = InputFieldToText.getAnun();
@@ -231,6 +468,7 @@ public class NewPlayer : MonoBehaviour
         if (hours >=24)
         {
             setDay(getDay() + 1);
+            setMoney(getMoney() - getHotelPrice());
             Hour = hours - 24;
         } else
         {
@@ -278,6 +516,18 @@ public class NewPlayer : MonoBehaviour
             minutes = "0" + minutes;
         }
         return minutes;
+    }
+
+    public static void setHotelPrice(double price)
+    {
+        if (price > 0) {
+            hotelPrice = price;
+        }
+    }
+
+    public static double getHotelPrice()
+    {
+        return hotelPrice;
     }
 
     public static void createNewPlayer()

@@ -8,7 +8,13 @@ public class SceneChange : MonoBehaviour
     public void startGame()
     {
         NewPlayer.createNewPlayer();
+        SceneManager.LoadScene("SelectHostel");
+    }
+
+    public void toUserScene()
+    {
         SceneManager.LoadScene("UserScene");
+        NewPlayer.setPagerText("Welcome to the Real Life!");
     }
 
     public void GnalXanut()
@@ -33,6 +39,12 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Dproc");
         NewPlayer.setPagerText("Bari galust Dproc....");
+    }
+
+    public void GoToGym()
+    {
+        SceneManager.LoadScene("Gym");
+        NewPlayer.setPagerText("Bari galust Sportzal... Ќадо подкачатьс€, надо - надо подкачатьс€...");
     }
 
     public void backToUserScene()
