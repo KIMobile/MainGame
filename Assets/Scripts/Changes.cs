@@ -7,6 +7,7 @@ public class Changes : MonoBehaviour
     public void selectFirstHostel()
     {
         NewPlayer.setHotelPrice(0.1);
+        NewPlayer.setPagerText("Ayjm du unes gisherakaci tex...");
     }
 
 

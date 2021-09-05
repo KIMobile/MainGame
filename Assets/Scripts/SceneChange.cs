@@ -47,6 +47,12 @@ public class SceneChange : MonoBehaviour
         NewPlayer.setPagerText("Bari galust Sportzal... Ќадо подкачатьс€, надо - надо подкачатьс€...");
     }
 
+    public void GoToHome()
+    {
+        SceneManager.LoadScene("Home");
+        NewPlayer.setPagerText("Home... Sweet home...");
+    }
+
     public void backToUserScene()
     {
         SceneManager.LoadScene("UserScene");

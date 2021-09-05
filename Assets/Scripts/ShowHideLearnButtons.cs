@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShowHide : MonoBehaviour
+public class ShowHideLearnButtons : MonoBehaviour
 {
     
     public GameObject LearnAlpha;
