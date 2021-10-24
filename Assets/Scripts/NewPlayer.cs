@@ -11,7 +11,7 @@ public class NewPlayer : MonoBehaviour
     public static int Minute = 0;
 
     //User stats
-    private static string anun;
+    private static string anun = "Noname";
     private static int hp;
     private static int MaxHp = 70;
     private static int power;
@@ -264,9 +264,9 @@ public class NewPlayer : MonoBehaviour
     }
 
     //Create new player variables
-    private static void setAnun()
+    public static void setAnun(string name)
     {
-        anun = InputFieldToText.getAnun();
+        anun = name;
     }
 
     public static string getAnun()
@@ -530,9 +530,10 @@ public class NewPlayer : MonoBehaviour
         return hotelPrice;
     }
 
+    //New player initialization
     public static void createNewPlayer()
     {
-        setAnun();
+        //setAnun();
         setHp();
         setPower();
         setEnergy();

@@ -1,29 +1,67 @@
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InputFieldToText : MonoBehaviour
 {
-    public InputField Field;
+    public InputField NameInputField;
     public Text TextBox;
     public Text Name;
+    private new string name;
 
-    public static string Anun = "Noname";
-
-    public void CopyText()
+    private void Start()
     {
-        TextBox.text = "Barlus " + Field.text + " axper";
-        Name.text = Field.text;
-        setAnun();
+        name = generateUsername();
+        NameInputField.placeholder.GetComponent<Text>().text = name;
+        NameInputField.text = name;
     }
 
-    private void setAnun()
+    private static string generateUsername()
     {
-        Anun = Field.text;
+        int num = Random.Range(0, 9999999);
+        string username = "Player_" + num.ToString();
+        return username;
     }
 
-    public static string getAnun()
+    private static bool IsUsername(string username)
     {
-        return Anun;
+        string nameRegex = "^[A-Za-z][A-Za-z0-9_]{5,19}$";
+        Regex regex = new Regex(nameRegex);
+        return regex.IsMatch(username);
+    }
+    
+
+    public void getTextFromField()
+    {
+        
+        if (NameInputField.text == "")
+        {
+            Name.text = name;
+        } else if (IsUsername(NameInputField.text))
+        {
+            Name.text = NameInputField.text;
+            TextBox.text = "Barlus " + Name.text + " axper";
+            NewPlayer.setAnun(Name.text);
+            DBManager.checkUsername();
+        }
+        else
+        {
+            TextBox.text = "Username is incorrect.";
+        }
+        
+    }
+
+    public void savePlayer()
+    {
+        if(DBManager.nickname != "")
+        {
+            Debug.Log(DBManager.nickname);
+            Debug.Log(DBManager.tocken);
+            Debug.Log(DBManager.hash);
+            PlayerPrefs.SetString("nickname", DBManager.nickname);
+            PlayerPrefs.SetString("tocken", DBManager.tocken);
+            PlayerPrefs.SetString("hash", DBManager.hash);
+        }
     }
 
 }
