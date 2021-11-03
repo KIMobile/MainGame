@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HostelButton: {fileID: 963294507}
   NextButton: {fileID: 273474751}
+  welcomeText: {fileID: 1995223811}
 --- !u!4 &63751387
 Transform:
   m_ObjectHideFlags: 0
@@ -2174,7 +2175,7 @@ GameObject:
   - component: {fileID: 1995223812}
   - component: {fileID: 1995223811}
   m_Layer: 0
-  m_Name: Text
+  m_Name: welcomeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,6 +11,7 @@ public class DBManager : MonoBehaviour
     public static string nickname = "";
     public static string tocken = "";
     public static string hash = "";
+    public static bool register = false;
 
 
     public static void checkUsername()
@@ -59,20 +60,18 @@ public class DBManager : MonoBehaviour
         else
         {
             Debug.Log(www.downloadHandler.text);
-            
-            //ShowPagerFromDB.setPagerText(www.downloadHandler.text);
 
             var dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(www.downloadHandler.text);
             Debug.Log(dic.Count);
             if (dic.Count > 1)
             {
-                Debug.Log(dic["id"]);
                 Debug.Log(dic["nickname"]);
                 Debug.Log(dic["tocken"]);
-                Debug.Log(dic["hash1"]);
+                Debug.Log(dic["hash"]);
                 nickname = dic["nickname"];
                 tocken = dic["tocken"];
-                hash = dic["hash1"];
+                hash = dic["hash"];
+                register = true;
             } else
             {
                 Debug.Log(dic["error"]);
@@ -98,15 +97,7 @@ public class DBManager : MonoBehaviour
         {
             Debug.Log(www.downloadHandler.text);
             string name = www.downloadHandler.text;
-            Authorisation.setNickname(name);
-            //ShowPagerFromDB.setPagerText(www.downloadHandler.text);
-
-            //var dic = JsonConvert.DeserializeObject<Dictionary<string, string>>(www.downloadHandler.text);
-            //string token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
-            //Debug.Log(token);
-            //Debug.Log(dic["id"]);
-            //Debug.Log(dic["name"]);
-            //Debug.Log(dic["password"]);
+            nickname = name;
         }
     }
 

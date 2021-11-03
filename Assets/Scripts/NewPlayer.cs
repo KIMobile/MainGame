@@ -43,6 +43,8 @@ public class NewPlayer : MonoBehaviour
 
     private static double hotelPrice = 0;
 
+    public static String Lang = "EN";
+
     //HP
     private static void setHpPercentChanger(int newValue)
     {

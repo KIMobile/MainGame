@@ -5,13 +5,13 @@ public class SceneChange : MonoBehaviour
 {
     
 
-    public void startGame()
+    public static void startGame()
     {
         NewPlayer.createNewPlayer();
         SceneManager.LoadScene("SelectHostel");
     }
 
-    public void toUserScene()
+    public static void toUserScene()
     {
         SceneManager.LoadScene("UserScene");
         NewPlayer.setPagerText("Welcome to the Real Life!");

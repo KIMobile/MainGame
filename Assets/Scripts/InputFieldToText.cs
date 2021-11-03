@@ -16,7 +16,7 @@ public class InputFieldToText : MonoBehaviour
         NameInputField.text = name;
     }
 
-    private static string generateUsername()
+    public static string generateUsername()
     {
         int num = Random.Range(0, 9999999);
         string username = "Player_" + num.ToString();
@@ -62,6 +62,11 @@ public class InputFieldToText : MonoBehaviour
             PlayerPrefs.SetString("tocken", DBManager.tocken);
             PlayerPrefs.SetString("hash", DBManager.hash);
         }
+    }
+
+    public void resetSaves()
+    {
+        PlayerPrefs.DeleteAll();
     }
 
 }
