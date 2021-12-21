@@ -44,6 +44,21 @@ public class DBManager : MonoBehaviour
         instance.StartCoroutine(Authorize(token, hash));
     }
 
+    public static void addStats()
+    {
+        if (!instance)
+        {
+            instance = FindObjectOfType<DBManager>();
+
+            if (!instance)
+            {
+                instance = new GameObject("CoroutineExecuter").AddComponent<DBManager>();
+            }
+        }
+
+        instance.StartCoroutine(CreatePlayer(NewPlayer.getAnun()));
+    }
+
     static IEnumerator Register(string username)
     {
         WWWForm form = new WWWForm();
@@ -98,6 +113,27 @@ public class DBManager : MonoBehaviour
             Debug.Log(www.downloadHandler.text);
             string name = www.downloadHandler.text;
             nickname = name;
+        }
+    }
+
+    private static IEnumerator CreatePlayer(string nickname)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("nickname", nickname);
+        
+
+        UnityWebRequest www = UnityWebRequest.Post("http://amo777ak.bget.ru/newPlayer/", form);
+        yield return www.SendWebRequest();
+
+        if (www.result != UnityWebRequest.Result.Success)
+        {
+            Debug.Log(www.error);
+        }
+        else
+        {
+            Debug.Log(www.downloadHandler.text);
+            //string name = www.downloadHandler.text;
+            
         }
     }
 

@@ -48,7 +48,12 @@ public class InputFieldToText : MonoBehaviour
         {
             TextBox.text = "Username is incorrect.";
         }
-        
+
+    }
+
+    public void CheckID()
+    {
+        DBManager.addStats();
     }
 
     public void savePlayer()
